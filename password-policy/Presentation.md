@@ -243,8 +243,6 @@ Limit to one slide.
 > - Other data is accessible via the internet (via VPN)
 > - Weak passwords are one of the major vulnerabilities that could compromise  network security and data privacy  
 
-<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48" style={{height: "25px"}}><g id="surface1"><path style={{fill: "#fff"}} d={"M 7 12 L 29 4 L 41 7 L 41 41 L 29 44 L 7 36 L 29 39 L 29 10 L 15 13 L 15 33 L 7 36 Z "}/></g></svg>
-
 # When?
 
 # How?
