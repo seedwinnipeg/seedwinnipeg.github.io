@@ -14,8 +14,9 @@ This slideshow will (hopefully) answer your questions about the changes to SEED'
 > - What?
 > - Why?
 > - When?
-> - How?
 > - Do I have to?
+> - How?
+
 
 ## Your Feedback
 
@@ -148,10 +149,11 @@ This slideshow will (hopefully) answer your questions about the changes to SEED'
 
 ## Is this a strong password?{data-transition="slide-in fade-out"}
 
-    CamHas16Legs!
+    AlfredHas16Legs!
 
 [Yes](#){.navigate-next .button .yes}
 [No](#){.navigate-next .button .no}
+
 
 ## Is this a strong password?{data-transition="fade-in slide-out"}
 
@@ -162,9 +164,10 @@ This slideshow will (hopefully) answer your questions about the changes to SEED'
 ::::{.good}
 >- It is 16 characters long
 >- It includes uppercase, lowercase, numbers, and symbols
->- It is memorable
->- ![](caterpillar.jpg "Hi, I'm Alfred!")
+>- It is memorable ![Hi, I'm Alfred!](caterpillar.svg){.alfred}
 ::::
+
+
 
 # What?{data-transition="slide-in fade-out"}
 - What makes a password strong?
@@ -228,10 +231,19 @@ Multi-Factor Authentication (MFA) is...
 > - Your office phone
 >     - Phone call
 
-## Password Safes
+## Password Managers
 Limit to one slide.
 
-# Why?
+# Why?{data-transition="fade"}
+> - We are entrusted with data from about 25,000 people.
+> - We are responsible to keep this data private and confidential.
+
+# Why?{data-transition="fade"}
+> - Much of this data lives in the cloud (Office 365, Google Suite, Better Outcomes)
+> - Other data is accessible via the internet (via VPN)
+> - Weak passwords are one of the major vulnerabilities that could compromise  network security and data privacy  
+
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48" style={{height: "25px"}}><g id="surface1"><path style={{fill: "#fff"}} d={"M 7 12 L 29 4 L 41 7 L 41 41 L 29 44 L 7 36 L 29 39 L 29 10 L 15 13 L 15 33 L 7 36 Z "}/></g></svg>
 
 # When?
 
@@ -239,7 +251,16 @@ Limit to one slide.
 > - What it means for you
 > - Your feedback
 
+## Password Policy
+> - Choose a password at least 8 characters long
+> - Choose at least 3 of the 4 character types
+> - Don't reuse passwords for personal and work accounts
+> - Don't share passwords with others
+> - Don't use any of the example passwords from this presentation
+> - Use Multi-Factor Authentication
+
+
 # Do I Have To? &#128553;
 >- Yes. 
->- Sorry but not sorry.
->- A network is only as strong as it's weakest link.
+>- Sorry not sorry.
+>- A network is only as secure as its weakest link.

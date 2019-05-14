@@ -37,10 +37,20 @@
 .reveal section img {
 	box-shadow: none;
 	margin: 0px;
-	background-color: #FFFFFF;
 	border: 2px solid #e7ad52;
 	padding: 20px;	
 	max-width: 60%;
+}
+
+.reveal section img.alfred {
+  border: 0pt;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  z-index: -1;
+  vertical-align: text-top;
+  background: none;
 }
 
 .reveal section div.image figcaption {
