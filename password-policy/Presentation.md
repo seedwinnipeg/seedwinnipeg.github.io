@@ -5,11 +5,18 @@ date: September 2019
 css: override.css
 transition: zoom
 theme: night
+width: 1280
+height: 720
 ---
 
 # Why does cybersecurity matter?
 
 ::: notes
+- Communicate in binary today.
+- 1 = Yes; 0 = No.
+- Who will use a computer today?
+- Who will deal with confidential information today?
+- Cybersecurity is necessary for us to do our work.
 - We are entrusted with data from about 25,000 people.
 - We are responsible to keep this data private and confidential.
 - Much of this data lives in the cloud (Office 365, Google Suite, Better Outcomes) or is accessible via the internet (via VPN)
@@ -104,7 +111,7 @@ theme: night
 ::::{.bad}
 >- It is short.
 >- It is not very complex.
->- It could be easily guessed based on public information about SEED.
+>- It could be easily guessed.
 ::::
 
 ## Is this a strong password?{data-transition="slide-in fade-out"}
@@ -170,10 +177,12 @@ theme: night
 ::::{.good}
 >- It is 16 characters long
 >- It includes uppercase, lowercase, numbers, and symbols
->- It is memorable ![Hi, I'm Alfred!](caterpillar.svg){.alfred}
+>- It is memorable 
 ::::
 
-# What makes a password strong?{data-transition="slide-in fade-out"}
+![](caterpillar.svg){.alfred .fragment}
+
+## What makes a password strong?{data-transition="slide-in fade-out"}
 
 ## A strong password is *unique.*{data-transition="fade"}
  
@@ -243,7 +252,7 @@ theme: night
 # How?{data-transition="fade"}
 
 > - Choose a new password following SEED's Password Policy.
-> - This password will be for your computer login (schachterk) and email login (kevin@seedwinnipeg.ca).
+> - This password will be for your computer login (*schachterk*) and email login (*kevin@seedwinnipeg.ca*).
 
 ## SEED's Password Policy
 > - Choose a password at least 8 characters long
@@ -252,7 +261,6 @@ theme: night
 > - Don't share passwords with others
 > - Don't use any of the example passwords from this presentation
 > - Use Multi-Factor Authentication
-> - Change your passwords if you think your account may have been compromised
 
 # Do I Have To? &#128553;
 >- Yes. 
@@ -261,7 +269,7 @@ theme: night
 
 # When?
 
-> - Later this month all staff will change passwords and set-up MFA (exact date TBD).
+> - Later this month all staff will change passwords and setup MFA (exact date TBD).
 > - We (SEED and Clear Concepts staff) will be available to help you.
 
 # Email Safety
@@ -270,6 +278,9 @@ theme: night
 > - Rules of thumb
 
 # Catching Phish
+
+> - Who is the sender?
+> - What are they asking you to do?
 
 # Rules of Thumb
 

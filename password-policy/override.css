@@ -1,21 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600);
+
 .reveal .slides {
     text-align: left;
 }
 
 .reveal section {
-	padding: 0px;
+  /*padding: 0px 40px;*/
+}
+
+.reveal .slides > section, .reveal .slides > section > section {
+  /*padding: 0px 40px;*/
+}
+
+.reveal h1, .reveal h2 {
+  /*padding-right: 40px;
+  margin-right: 40px;*/
 }
 
 .reveal h1 {
-  font-size: 2em; 
+  font-size: 2em;
+  font-weight: 600; 
 }
 
 .reveal h2 {
   font-size: 1.67em; 
+  font-weight: 500; 
 }
 
 .reveal h3 {
   font-size: 1.33em; 
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  color: #f9e9d2;
 }
 
 .reveal blockquote {
@@ -23,11 +40,11 @@
 }
 
 .reveal li {
-	margin-bottom: 20px;
+	margin-bottom: 0.4em;
 }
 
 .reveal li ul {
-	margin-top: 20px;
+	margin-top: 0.4em;
 }
 
 .reveal section div.image figure {
@@ -44,10 +61,11 @@
 
 .reveal section img.alfred {
   border: 0pt;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  width: 50%;
+  position: fixed;
+  bottom: 0px;
+  right: 60px;
+  /*width: 50%;*/
+  height: 25%;
   z-index: -1;
   vertical-align: text-top;
   background: none;
@@ -71,19 +89,20 @@
 .reveal pre {
 	text-align: left;
 	max-width: 60%;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	margin-left: 0px;
 }
 
 .reveal pre code {
     display: block;
-    padding: 5px;
+    padding: 10px;
     overflow: auto;
     max-height: 400px;
     word-wrap: normal;
     background-color: white;
     border: 2px solid #e7ad52;
     color: black;
+    font-size: 1.33em;
 }
 
 a.button {
@@ -173,6 +192,23 @@ div.pdf-page section div.footnote {
   visibility: hidden !important;*/
   position: relative;
   top: 20px;
+}
+
+span.no {
+  color: #F44336;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+span.yes {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.reveal em {
+  font-style: normal;
+  color: #e7ad52;
 }
 
 section div.footnote:after{content:''; width:60%; height:1px; background:#e7ad52; position:absolute; top:0px;}
