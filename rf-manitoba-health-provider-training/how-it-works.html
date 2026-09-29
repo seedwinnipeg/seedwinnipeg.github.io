@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>How the Q&amp;A pipeline works – Resilient Futures (mockup)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="mockup-banner" role="region" aria-label="Mockup notice">
+    <div class="wrap"><strong>Proof of concept.</strong> This page explains the planned workflow. Nothing here is connected yet.</div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <p class="course">Resilient Futures: Disability Benefits for Manitoba Health Providers</p>
+      <nav aria-label="Course">
+        <ul>
+          <li><a href="index.html">Course home</a></li>
+          <li><a href="section-5.html">Section 5 (Q&amp;A sample)</a></li>
+        </ul>
+      </nav>
+      <fieldset class="theme-switch">
+        <legend>Theme</legend>
+        <label><input type="radio" name="theme" value="light"> Light</label>
+        <label><input type="radio" name="theme" value="dark"> Dark</label>
+        <label><input type="radio" name="theme" value="system" checked> System</label>
+      </fieldset>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <h1>How the Q&amp;A pipeline works</h1>
+    <p>Learners' questions become private GitHub Issues. Presenters answer them there. Once an editor approves one, GitHub Actions turns it into a Markdown file in the course and rebuilds the site. Every step leaves a record in Git.</p>
+    <p>
+      <span class="tag auto">Automatic</span> steps run by themselves.
+      <span class="tag human">Person</span> steps need someone to act. Nothing is published without a person approving it.
+    </p>
+
+    <h2>The steps</h2>
+    <ol class="steps">
+      <li>
+        <h3>A learner asks a question</h3>
+        <span class="tag auto">Automatic</span>
+        <p>The form checks for identifying details while they type (email, phone, PHIN or SIN, postal code, dates, names after "Mr." or "my client"). It asks the learner to remove them before sending. <a href="section-5.html#ask">Try it on the sample page</a>.</p>
+      </li>
+      <li>
+        <h3>A small relay creates a private Issue</h3>
+        <span class="tag auto">Automatic</span>
+        <p>Learners don't have GitHub accounts, so the form sends to a small serverless function (on Netlify or Cloudflare). It checks for spam, runs the privacy check again, keeps the learner's email <em>out</em> of the Issue, and opens an Issue with labels for the section and which presenter it's for.</p>
+      </li>
+      <li>
+        <h3>The right presenter is notified</h3>
+        <span class="tag auto">Automatic</span>
+        <p>A label such as <code>for: lived experience</code> assigns the Issue. GitHub emails the presenter, and they can answer by <strong>replying to that email</strong>. The reply becomes a comment on the Issue.</p>
+      </li>
+      <li>
+        <h3>An editor reviews and approves</h3>
+        <span class="tag human">Person</span>
+        <p>The editor checks accuracy and removes any identifying details the automatic check missed. They can reword the question for general use, then add the <code>approved</code> label.</p>
+      </li>
+      <li>
+        <h3>GitHub Actions writes the Q&amp;A file</h3>
+        <span class="tag auto">Automatic</span>
+        <p>The <code>approved</code> label starts a workflow. It runs a stronger privacy scan on the question <em>and</em> the answer, writes a Markdown file, and opens a pull request. The editor can see exactly what will be published.</p>
+      </li>
+      <li>
+        <h3>Merge, build and publish</h3>
+        <span class="tag human">Person</span> <span class="tag auto">Automatic</span>
+        <p>Merging the pull request rebuilds the site. The Q&amp;A appears under "Questions from other providers" in its section, and the Issue closes. If the learner left an email, they get a note saying it's answered.</p>
+      </li>
+      <li>
+        <h3>Answers are kept up to date</h3>
+        <span class="tag auto">Automatic</span>
+        <p>Benefit rules change. A scheduled workflow opens a review Issue for any answer that hasn't been reviewed in 12 months.</p>
+      </li>
+    </ol>
+
+    <h2>Example: the Issue</h2>
+    <article class="issue" aria-labelledby="issue-title">
+      <header>
+        <h3 id="issue-title">Issue #12: What should I focus on when describing a client's restrictions on the DTC form?</h3>
+        <p>
+          <span class="tag">question</span><span class="tag">section-5</span><span class="tag">for: health provider</span><span class="tag">pii-check-passed</span><span class="tag">approved</span>
+        </p>
+      </header>
+      <div class="body">
+        <p><strong>Question:</strong> I often fill out T2201 forms for clients with chronic pain. What should I focus on when describing restrictions?</p>
+        <p><strong>Section:</strong> 5. Application processes</p>
+      </div>
+      <div class="comment">
+        <p><strong>Health provider co-presenter replied by email:</strong> Describe how the condition affects day-to-day function (what the person can't do, or needs much longer to do, and how often), not only the diagnosis.</p>
+      </div>
+      <div class="comment">
+        <p><strong>Editor:</strong> Made the question general (removed "chronic pain") and added the <code>approved</code> label.</p>
+      </div>
+    </article>
+
+    <h2>Example: the file GitHub Actions writes</h2>
+    <p><code>content/questions/section-5/2026-10-dtc-describing-restrictions.md</code></p>
+<pre><code>---
+question: What should I focus on when describing a client's restrictions on the DTC form?
+section: 5
+answeredBy: health provider co-presenter
+reviewed: 2026-10-14
+issue: 12
+---
+
+Describe how the condition affects day-to-day function (what the person
+can't do, or needs much longer to do, and how often), not only the diagnosis.</code></pre>
+
+    <h2>About the privacy check</h2>
+    <p>The automatic checks catch <strong>structured</strong> details such as numbers, emails, postal codes and dates. They're weaker on names, places and rare conditions, which can identify someone when combined. The workflow can add a stronger scan (a named-entity tool such as Microsoft Presidio, or an AI review) that flags anything doubtful. Even so, <strong>the editor's approval is the real safeguard</strong>, and nothing skips it.</p>
+
+    <h2>Still to decide</h2>
+    <ul>
+      <li>Where the relay function runs (Netlify or Cloudflare). GitHub Pages alone can't receive form submissions.</li>
+      <li>Whether presenters get their own GitHub accounts, or an editor passes questions to them.</li>
+      <li>Who the editors are, and how quickly questions should be answered.</li>
+      <li>How long questions and learner emails are kept.</li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mockup for discussion · Developed by SEED Winnipeg · <a href="section-5.html">Back to the Q&amp;A sample</a></p>
+    </div>
+  </footer>
+</body>
+</html>

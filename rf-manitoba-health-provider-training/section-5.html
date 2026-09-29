@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Application processes – Section 5 of 9 – Resilient Futures (mockup)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="mockup-banner" role="region" aria-label="Mockup notice">
+    <div class="wrap">
+      <strong>Proof of concept.</strong> Questions and answers on this page are placeholders, not reviewed guidance.
+      <a href="how-it-works.html">See how the Q&amp;A pipeline works</a>.
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <p class="course">Resilient Futures: Disability Benefits for Manitoba Health Providers</p>
+      <nav aria-label="Course">
+        <ul>
+          <li><a href="index.html">Course home</a></li>
+          <li><a href="section-4.html">Previous: Overview of programs</a></li>
+          <li><a href="#questions">Questions from other providers</a></li>
+          <li><a href="#ask">Ask a question</a></li>
+          <li><a href="how-it-works.html">How Q&amp;A works</a></li>
+        </ul>
+      </nav>
+      <fieldset class="theme-switch">
+        <legend>Theme</legend>
+        <label><input type="radio" name="theme" value="light"> Light</label>
+        <label><input type="radio" name="theme" value="dark"> Dark</label>
+        <label><input type="radio" name="theme" value="system" checked> System</label>
+      </fieldset>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <p class="progress">Section 5 of 9 · About 20 minutes</p>
+    <h1>Application processes</h1>
+
+    <section class="objectives" aria-labelledby="objectives-heading">
+      <h2 id="objectives-heading">In this section you will</h2>
+      <ul>
+        <li>Identify clients who may be eligible (screening, reminders, chart review)</li>
+        <li>Prepare an assessment for form completion (diagnoses, timelines, functional assessment, symptoms)</li>
+        <li>Apply tips for completing key forms such as the Disability Tax Credit (DTC) and CPP Disability</li>
+      </ul>
+    </section>
+
+    <p>[Section content goes here: sample cases, form walkthroughs and advice from disability and income lawyers.]</p>
+
+    <h2 id="questions">Questions from other providers</h2>
+    <p>Questions asked by learners and answered by the presenters. Identifying details are removed before anything is published.</p>
+
+    <ul class="qa-list">
+      <li class="qa">
+        <h3>What should I focus on when describing a client's restrictions on the DTC form?</h3>
+        <p><strong>Sample answer:</strong> Describe how the condition affects day-to-day function (what the person can't do, or needs much longer to do, and how often), not only the diagnosis.</p>
+        <p class="meta">Answered by the health provider co-presenter · Reviewed October 2026</p>
+      </li>
+      <li class="qa">
+        <h3>My client's application was denied. Is it worth helping with a review or appeal?</h3>
+        <p><strong>Sample answer:</strong> Placeholder. Section 6 will cover appeals, including tips from lawyers on how health providers can contribute.</p>
+        <p class="meta">Answered by the community financial advice co-presenter · Reviewed October 2026</p>
+      </li>
+      <li class="qa">
+        <h3>How do I raise disability benefits with a client without it feeling intrusive?</h3>
+        <p><strong>Sample answer:</strong> Placeholder for the lived experience co-presenter's perspective.</p>
+        <p class="meta">Answered by the lived experience co-presenter · Reviewed October 2026</p>
+      </li>
+    </ul>
+
+    <h2 id="ask">Ask a question</h2>
+    <p>Your question goes to the presenters. Answers that could help others are added to this page after review.</p>
+    <p><strong>Don't include anything that could identify a client</strong>, such as names, dates of birth, PHIN, addresses or rare details. Describe the situation in general terms.</p>
+
+    <form id="ask-form" novalidate>
+      <div id="error-summary" tabindex="-1"></div>
+
+      <div>
+        <label for="question">Your question <span class="hint">Required</span></label>
+        <textarea id="question" name="question" required aria-describedby="question-error pii-warning"></textarea>
+        <p id="question-error" class="error" hidden></p>
+      </div>
+
+      <div id="pii-warning" class="pii-warning" role="status" aria-live="polite"></div>
+
+      <fieldset>
+        <legend>Who would you like to answer? <span class="hint">Optional</span></legend>
+        <label class="choice"><input type="radio" name="for" value="Any presenter" checked> Not sure, any presenter</label>
+        <label class="choice"><input type="radio" name="for" value="Health provider"> Health provider</label>
+        <label class="choice"><input type="radio" name="for" value="Community financial advice"> Community financial advice</label>
+        <label class="choice"><input type="radio" name="for" value="Lived experience"> Lived experience</label>
+      </fieldset>
+
+      <div>
+        <label for="email">Email <span class="hint">Optional. Only used to tell you when your question is answered. Never published.</span></label>
+        <input type="email" id="email" name="email" autocomplete="email">
+      </div>
+
+      <div class="hp" aria-hidden="true">
+        <label for="website">Leave this empty</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit">Send question</button>
+    </form>
+
+    <div id="result" class="result" tabindex="-1"></div>
+
+    <nav class="pager" aria-label="Section">
+      <a href="section-4.html">← Section 4: Overview of disability benefit programs</a>
+      <a href="index.html">Course home →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mockup for discussion · Developed by SEED Winnipeg · <a href="how-it-works.html">How the Q&amp;A pipeline works</a></p>
+    </div>
+  </footer>
+</body>
+</html>
