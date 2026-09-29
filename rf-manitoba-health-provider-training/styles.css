@@ -320,3 +320,33 @@ video { display: block; width: 100%; height: auto; border-radius: var(--radius);
 .presenting .theme-switch { display: none; }
 .callout h2 { font-size: 1.2rem; margin: 0 0 0.25rem; }
 [tabindex="-1"]:focus { outline: none; }
+
+/* ---- Speaker view ----------------------------------------------------- */
+.speaker-view main { max-width: none; padding: 1rem 16px 7rem; }
+.sv-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.5rem; }
+.sv-header h1 { font-size: 1.5rem; margin: 0; }
+.sv-header p { margin: 0; }
+.sv-waiting { max-width: var(--measure); font-size: 1.25rem; }
+.sv-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1.5rem; margin-top: 1rem; }
+.sv-grid h2 { font-size: 1.1rem; margin: 0 0 0.5rem; }
+.sv-side { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; align-content: start; min-width: 0; }
+.sv-current { min-width: 0; }
+.sv-clock .hint { display: inline; }
+.sv-frame { position: relative; overflow: hidden; border: 2px solid var(--color-border); border-radius: var(--radius); background: var(--color-bg); }
+.sv-current .sv-frame { border-color: var(--color-accent); border-width: 3px; }
+.sv-stage { width: 900px; padding: 1.5rem 2rem; transform-origin: top left; font-size: 1.5rem; }
+.sv-stage h2 { font-size: 2.6rem; margin-top: 0; }
+.sv-stage .notes { display: none; }
+.sv-frame-small .sv-stage { max-height: 1400px; }
+.sv-timer, .sv-notes { border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.sv-clock { margin: 0; font-size: 2.5rem; font-weight: 700; font-variant-numeric: tabular-nums; font-family: var(--font-heading); }
+.sv-clock .hint { font-size: 1.1rem; font-weight: 400; }
+.sv-over { margin: 0.25rem 0 0; font-weight: 700; color: var(--color-error); }
+.sv-meter { height: 10px; border-radius: 5px; background: var(--color-surface-cream); margin: 0.75rem 0; overflow: hidden; }
+.sv-meter div { height: 100%; width: 0; background: var(--color-accent); }
+.sv-is-over .sv-meter div { background: var(--color-error); }
+.sv-timer-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.sv-notes { font-size: 1.35rem; line-height: 1.5; }
+.sv-notes p { margin: 0 0 0.5em; }
+@media (max-width: 50rem) { .sv-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (forced-colors: active) { .sv-meter div { background: Highlight; } }

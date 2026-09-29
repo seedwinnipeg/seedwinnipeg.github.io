@@ -9,6 +9,31 @@ const bar = document.querySelector(".present-bar");
 const toggle = document.getElementById("present-toggle");
 let current = 0;
 
+// Speaker view runs in a second window and stays in sync over BroadcastChannel.
+const channel = "BroadcastChannel" in window ? new BroadcastChannel("rf-present") : null;
+const presenting = () => document.body.classList.contains("presenting");
+
+function screenData(screen) {
+  const preview = screen.cloneNode(true);
+  preview.querySelectorAll(".notes, .type-label").forEach((n) => n.remove());
+  const notes = screen.querySelector(".notes");
+  return {
+    title: screen.querySelector("h2").textContent,
+    html: preview.innerHTML,
+    notes: notes ? notes.innerHTML : "",
+  };
+}
+
+function broadcastState() {
+  channel?.postMessage({
+    type: "state",
+    index: current,
+    section: document.querySelector("h1").textContent,
+    duration: Number(document.querySelector("main").dataset.duration) || 0,
+    screens: screens.map(screenData),
+  });
+}
+
 function show(index) {
   current = Math.max(0, Math.min(index, screens.length - 1));
   screens.forEach((s, i) => (s.hidden = i !== current));
@@ -16,6 +41,7 @@ function show(index) {
   bar.querySelector("[data-prev]").disabled = current === 0;
   bar.querySelector("[data-next]").disabled = current === screens.length - 1;
   screens[current].querySelector("h2").focus();
+  broadcastState();
 }
 
 function startPresenting() {
@@ -30,6 +56,7 @@ function stopPresenting() {
   bar.hidden = true;
   screens.forEach((s) => (s.hidden = false));
   toggle.focus();
+  channel?.postMessage({ type: "ended" });
 }
 
 if (toggle && bar) {
@@ -42,8 +69,23 @@ if (toggle && bar) {
     e.currentTarget.setAttribute("aria-pressed", String(on));
   });
 
+  const speakerButton = bar.querySelector("[data-speaker]");
+  if (channel) {
+    speakerButton.addEventListener("click", () => {
+      const win = window.open("speaker.html", "rf-speaker", "popup,width=1200,height=800");
+      if (!win) bar.querySelector(".present-count").textContent = "Your browser blocked the speaker view window. Allow pop-ups for this site and try again.";
+    });
+    channel.addEventListener("message", ({ data }) => {
+      if (!presenting()) return;
+      if (data.type === "hello") broadcastState();
+      else if (data.type === "goto") show(data.index);
+    });
+  } else {
+    speakerButton.hidden = true;
+  }
+
   document.addEventListener("keydown", (e) => {
-    if (!document.body.classList.contains("presenting")) return;
+    if (!presenting()) return;
     // Leave arrow keys alone inside form fields (radio groups use them).
     if (e.target.closest("input, textarea, select, [contenteditable]")) return;
     if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); show(current + 1); }

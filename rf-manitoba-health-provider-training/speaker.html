@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Speaker view – Resilient Futures (mockup)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
+  <script src="speaker.js" defer></script>
+</head>
+<body class="speaker-view">
+  <main id="main" tabindex="-1">
+    <header class="sv-header">
+      <h1>Speaker view</h1>
+      <p id="sv-section" class="hint">Waiting for the presentation…</p>
+    </header>
+
+    <div id="sv-waiting" class="sv-waiting">
+      <p>Open a section in the other window and select <strong>Present this section</strong>. This window will connect automatically.</p>
+    </div>
+
+    <div id="sv-live" class="sv-grid" hidden>
+      <section class="sv-current" aria-labelledby="sv-current-label">
+        <h2 id="sv-current-label">Now: <span id="sv-current-title"></span></h2>
+        <div class="sv-frame"><div class="sv-stage" id="sv-current" aria-hidden="true" inert></div></div>
+      </section>
+
+      <section class="sv-side" aria-label="Next screen, time and notes">
+        <div class="sv-timer">
+          <h2>Time</h2>
+          <p class="sv-clock"><span id="sv-elapsed">0:00</span> <span id="sv-target" class="hint"></span></p>
+          <p id="sv-over" class="sv-over" hidden></p>
+          <div class="sv-meter" aria-hidden="true"><div id="sv-meter-fill"></div></div>
+          <div class="sv-timer-buttons">
+            <button type="button" class="secondary" id="sv-pause" aria-pressed="false">Pause</button>
+            <button type="button" class="secondary" id="sv-reset">Reset</button>
+          </div>
+        </div>
+
+        <div class="sv-next">
+          <h2>Next: <span id="sv-next-title"></span></h2>
+          <div class="sv-frame sv-frame-small"><div class="sv-stage" id="sv-next" aria-hidden="true" inert></div></div>
+        </div>
+
+        <div class="sv-notes">
+          <h2>Notes</h2>
+          <div id="sv-notes"></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="sv-ended" class="sv-waiting" hidden>
+      <p>The presentation has ended. Select <strong>Present this section</strong> again in the other window to reconnect.</p>
+    </div>
+  </main>
+
+  <div class="present-bar sv-bar">
+    <button type="button" id="sv-prev">Previous</button>
+    <p class="present-count" id="sv-count" role="status" aria-live="polite"></p>
+    <button type="button" id="sv-next-button">Next</button>
+  </div>
+</body>
+</html>

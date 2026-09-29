@@ -38,13 +38,13 @@
     </div>
   </header>
 
-  <main id="main" class="wrap" tabindex="-1">
+  <main id="main" class="wrap" tabindex="-1" data-duration="10">
     <p class="progress">Section 4 of 9 · About 10 minutes</p>
     <h1>Overview of disability benefit programs</h1>
 
     <div class="present-intro">
       <button type="button" id="present-toggle" class="secondary">Present this section</button>
-      <p class="hint">Shows one screen at a time for the live webinar. Use the arrow keys or a clicker; press Escape to exit.</p>
+      <p class="hint">Shows one screen at a time for the live webinar. Use the arrow keys or a clicker; press Escape to exit. <strong>Speaker view</strong> opens your notes, the next screen and a timer in a second window.</p>
     </div>
 
     <section class="objectives" aria-labelledby="objectives-heading">
@@ -266,6 +266,7 @@
     <p class="present-count" role="status" aria-live="polite"></p>
     <button type="button" data-next>Next</button>
     <button type="button" class="secondary" data-notes aria-pressed="false">Notes</button>
+    <button type="button" class="secondary" data-speaker>Speaker view</button>
     <button type="button" class="secondary" data-exit>Exit</button>
   </div>
 
